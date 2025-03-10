@@ -1,0 +1,2 @@
+/Users/yeong/project/mvp/texx/android/app/.cxx/Debug/s4sx233d/x86/CMakeFiles/rebuild_cache.dir
+/Users/yeong/project/mvp/texx/android/app/.cxx/Debug/s4sx233d/x86/CMakeFiles/edit_cache.dir
