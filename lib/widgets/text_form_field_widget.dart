@@ -24,6 +24,8 @@ class TextFormFieldWidget extends StatelessWidget {
         return passwordInput();
       case 'rePassword':
         return rePasswordInput();
+      case 'nickName':
+        return nickNameInput();
       default:
         return Container();
     }
@@ -109,6 +111,33 @@ class TextFormFieldWidget extends StatelessWidget {
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 17, horizontal: 15),
             hintText: '비밀번호를 재입력해주세요.',
+            hintStyle: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                color: ColorConstants.textGray),
+            filled: true,
+            fillColor: ColorConstants.lightGray));
+  }
+
+  Widget nickNameInput() {
+    return TextFormField(
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        validator: (val) {
+          if (val!.isEmpty) {
+            return '닉네임을 입력해주세요.';
+          } else {
+            return null;
+          }
+        },
+        onSaved: onSaved,
+        decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide.none,
+            ),
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 17, horizontal: 15),
+            hintText: '닉네임을 입력해주세요.',
             hintStyle: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,

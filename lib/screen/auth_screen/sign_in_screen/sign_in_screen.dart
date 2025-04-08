@@ -39,7 +39,7 @@ class _SignInState extends State<SignInScreen> {
               },
               //키보드가 올라와도 화면을 가리지 않게 하기 위한 코드
               child: SingleChildScrollView(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: SafeArea(
                       child: SizedBox(
                           height:
@@ -53,6 +53,14 @@ class _SignInState extends State<SignInScreen> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
+                                      Image.asset(
+                                        'assets/images/logo.jpeg',
+                                        width: 200,
+                                        height: 200,
+                                      ),
+                                      const SizedBox(
+                                        height: 20,
+                                      ),
                                       //이메일 입력 폼
                                       Container(
                                         margin: const EdgeInsets.only(top: 20),
@@ -71,12 +79,12 @@ class _SignInState extends State<SignInScreen> {
                                                   password as String)),
                                       FullWidthBtn(
                                         type: 'Elevated',
-                                        title: Text(
+                                        title: const Text(
                                           '로그인',
                                           style: TextStyle(
                                               fontSize: 15,
                                               fontWeight: FontWeight.w600,
-                                              color: ColorConstants.lightGray),
+                                              color: Colors.white),
                                         ),
                                         margin: EdgeInsets.zero,
                                         color: ColorConstants.textGray,

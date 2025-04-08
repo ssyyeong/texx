@@ -12,8 +12,9 @@ class FullWidthBtn extends StatelessWidget {
       this.margin, //버튼 container margin
       this.btnPadding, //버튼 padding
       this.color, //버튼 색상
-      this.border //버튼 테두리값
-      });
+      this.border, //버튼 테두리값
+      this.borderColor,
+      this.borderRadius});
 
   final String type;
   final Text title;
@@ -23,6 +24,8 @@ class FullWidthBtn extends StatelessWidget {
   final EdgeInsets? btnPadding;
   final Color? color;
   final double? border;
+  final Color? borderColor;
+  final double? borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +46,8 @@ class FullWidthBtn extends StatelessWidget {
           elevation: 0,
           padding: btnPadding ?? const EdgeInsets.symmetric(vertical: 19),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(border ?? 10),
+            borderRadius: BorderRadius.circular(borderRadius ?? 10),
+            side: BorderSide(color: borderColor ?? Colors.white),
           ),
           backgroundColor: color ?? Colors.white);
     } else if (type == 'E') {
@@ -51,7 +55,8 @@ class FullWidthBtn extends StatelessWidget {
           elevation: 0,
           padding: btnPadding ?? const EdgeInsets.symmetric(vertical: 19),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(border ?? 10),
+            borderRadius: BorderRadius.circular(borderRadius ?? 10),
+            side: BorderSide(color: borderColor ?? Colors.white),
           ),
           backgroundColor: color ?? Colors.white);
     } else {
@@ -59,7 +64,8 @@ class FullWidthBtn extends StatelessWidget {
           elevation: 0,
           padding: btnPadding ?? const EdgeInsets.symmetric(vertical: 19),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(border ?? 10),
+            borderRadius: BorderRadius.circular(borderRadius ?? 10),
+            side: BorderSide(color: borderColor ?? Colors.white),
           ),
           backgroundColor: color ?? Colors.white);
     }

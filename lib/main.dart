@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:texx/screen/auth_screen/sign_in_screen/sign_in_screen.dart';
 import 'package:texx/config/route_generator.dart';
+import 'package:texx/screen/home.dart';
+import 'package:texx/screen/main_screen/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SignInScreen(),
+      home: const HomeScreen(),
       onGenerateRoute: RouteGenerator.generateRoute,
     );
   }

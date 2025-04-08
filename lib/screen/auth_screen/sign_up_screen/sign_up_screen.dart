@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:texx/config/color_constants.dart';
-import 'package:texx/widgets/button_widget.dart';
 import 'package:texx/widgets/full_width_btn.dart';
 import 'package:texx/widgets/text_form_field_widget.dart';
 
@@ -14,7 +13,7 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpState extends State<SignUpScreen> {
   final _key = GlobalKey<FormState>();
-  late String _email = '', _password = '', _rePassword = '';
+  late String _email = '', _password = '', _rePassword = '', _nickName = '';
   late bool isTermsAgreed; // 서비스 이용약관 동의
   late bool isPrivacyAgreed; // 개인정보 처리방침 동의
   late bool isMarketingAgreed; // 마케팅 정보 수신 동의
@@ -39,6 +38,19 @@ class _SignUpState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.black,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white),
+        ),
+        title: const Text(
+          '회원가입',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: SafeArea(
@@ -47,18 +59,7 @@ class _SignUpState extends State<SignUpScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 50), // 상단 여백
-                // 타이틀
-                const Text(
-                  '회원가입',
-                  style: TextStyle(
-                    fontSize: 20, // 크기 증가
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
                 const SizedBox(height: 25), // 타이틀과 폼 사이 간격 증가
-
                 // 입력 폼
                 Form(
                   key: _key,
@@ -70,6 +71,8 @@ class _SignUpState extends State<SignUpScreen> {
                       _buildInputField('비밀번호', 'password'),
                       const SizedBox(height: 24),
                       _buildInputField('비밀번호 재입력', 'rePassword'),
+                      const SizedBox(height: 24),
+                      _buildInputField('닉네임', 'nickName'),
                     ],
                   ),
                 ),
@@ -151,7 +154,8 @@ class _SignUpState extends State<SignUpScreen> {
                     ),
                   ),
                   margin: EdgeInsets.zero,
-                  color: ColorConstants.btnPrimary,
+                  color: ColorConstants.textGray,
+                  btnPadding: const EdgeInsets.symmetric(vertical: 15),
                   onPressed: () {
                     if (_key.currentState!.validate()) {
                       _key.currentState!.save();
@@ -178,7 +182,7 @@ class _SignUpState extends State<SignUpScreen> {
           style: const TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.w500,
-            color: Colors.white70,
+            color: Colors.white,
           ),
         ),
         const SizedBox(height: 8),
@@ -194,6 +198,9 @@ class _SignUpState extends State<SignUpScreen> {
                 break;
               case 'rePassword':
                 _rePassword = value as String;
+                break;
+              case 'nickName':
+                _nickName = value as String;
                 break;
             }
           },
